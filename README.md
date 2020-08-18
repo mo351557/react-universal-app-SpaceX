@@ -5,7 +5,7 @@ React Server Side Rendering demo project.
 Demo: [Click to see DEMO](https://spacex-in-sapient.herokuapp.com/)
 
 ## Lighthouse score 
-![SpaceX Launch](https://github.com/mo351557/react-universal-app-SpaceX/blob/master/LightHouse_score_for_SpaceX.png)
+![SpaceX Launch](https://github.com/mo351557/react-universal-app-SpaceX/blob/master/LightHouse_score_for_SpaceX.PNG)
 
 ## Technologies Used
 
@@ -56,6 +56,6 @@ You can deploy this project to:
  
  And if the page is refreshed with the applied filters in the URL – the resulting page should be server side rendered & subsequent filters should again be client side rendered.
 
- 
+
 
 
