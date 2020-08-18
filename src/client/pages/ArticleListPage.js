@@ -1,5 +1,3 @@
-/* eslint-disable no-script-url */
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
@@ -24,7 +22,6 @@ const ArticleListPage = props => {
   };
 
   const renderArticles = () => {
-    console.log("props",props)
     return  props.articles.length > 0 ? props.articles.map(article => (
      
       <div className="col s12 m6 l3 xl3" key={article.flight_number}>
@@ -74,7 +71,6 @@ const ArticleListPage = props => {
   }
 
   const yearFilter = (year) => {
-    console.log("year",year,newPath)
     if(!newPath.includes("20")) newPath = year+"_"+newPath
     else newPath = year+"";
     let path = `/articles/${newPath}`; 
@@ -84,56 +80,37 @@ const ArticleListPage = props => {
   const history = useHistory();
 
   const filterSuccessLaunch = (isSuccess) =>{ 
-    console.log("newpath",newPath)
 
     if(isSuccess){
-      console.log("filterzSuccess",newPath)
       if(newPath.includes("LaunchFailed")) {
         newPath = newPath.replace("LaunchFailed","LaunchSuccess")
-        console.log("inside succ", newPath)
       }
       else if(!newPath.includes("LaunchSuccess")){
         newPath = newPath+"_"+"LaunchSuccess";
       }
     }
     else{
-      console.log("filterzFailure",newPath)
 
       if(newPath.includes("LaunchSuccess")) newPath = newPath.replace("LaunchSuccess","LaunchFailed")
       else if(!newPath.includes("LaunchFailed")){
         newPath = newPath+"_"+"LaunchFailed";
       }
     }
-    // if(!newPath.includes("LaunchSuccess") && newPath.includes("LaunchFailed")) {
-    //   if(isSuccess) newPath = newPath+"_"+"LaunchSuccess";
-    // }
-    // else if(!newPath.includes("LaunchFailed")) {
-    //   if(!isSuccess) newPath = newPath+"_"+"LaunchFailed";
-    // }
-    // if(isSuccess) newPath = "LaunchSuccess";
+    
     let path = `/articles/${newPath}`; 
     history.push(path);
   }
 
   const filterSuccessLanding = (isSuccess) =>{ 
-    // let newPath;
-    console.log("newpath",newPath)
-    // if(isSuccess) newPath = "LandingSuccess";
-    // else newPath = "LandingFailed"
-
     if(isSuccess){
-      console.log("filterzSuccess",newPath)
       if(newPath.includes("LandingFailed")) {
         newPath = newPath.replace("LandingFailed","LandingSuccess")
-        console.log("inside succ", newPath)
       }
       else if(!newPath.includes("LandingSuccess")){
         newPath = newPath+"_"+"LandingSuccess";
       }
     }
     else{
-      console.log("filterzFailure",newPath)
-
       if(newPath.includes("LandingSuccess")) newPath = newPath.replace("LandingSuccess","LandingFailed")
       else if(!newPath.includes("LandingFailed")){
         newPath = newPath+"_"+"LandingFailed";
@@ -154,16 +131,6 @@ const ArticleListPage = props => {
           <div class="divider" style={styles.dividerStyle}></div>
           <div>
             <div style={{"margin-top": "5px"}}>
-            {/* {yearsArr().map(value => 
-              ( <div class="col s6 m6 l6 xl6" style={{padding: "4%", "text-align": "center"}}>
-                <a class="waves-effect btn" style={styles.btnEffect} 
-                    // onMouseOver={changeBackground1} onMouseLeave={changeBackground2(value.key)}
-                      onClick={changeBackgroundClick(value.key)} 
-                     key={value.key}>{value.year}</a>
-                </div> 
-              )
-            )} */}
-
               <div class="col s6 m6 l6 xl6" style={{padding: "4%", "text-align": "center"}}>
                 <a class="waves-effect btn" onClick={() => yearFilter(2006)} style={{"background-color": "#2bbb4361", color: "black"}}>2006</a>
               </div> 
@@ -260,24 +227,8 @@ const ArticleListPage = props => {
     </div>
  )
   }
-  let toggleyearBtnArr = Array(yearsArr.length).fill(false);
-  function changeBackground1(e) {
-    console.log(e.type)
-    e.target.style.background = '#2bbb43eb';
-  }
-  function changeBackground2(e, index) {
-    // if(!toggleyearBtnArr[index]){
-    //   e.target.style.background = '#2bbb4361' ;
-    // }
-  }
-  function changeBackgroundClick(e,index){
-    // toggleyearBtnArr[index] = !toggleyearBtnArr[index];
-    // if(!toggleyearBtnArr[index]) e.target.style.background = '#2bbb4361' ;
-    // if(toggleyearBtnArr[index]) e.target.style.background = '#2bbb43eb' ;
-  }
-
-  // #2bbb43a6 - green
-  // #2bbb4361 = hover
+ 
+  
   const head = () => {
     return (
       <Helmet key={Math.random()}>
@@ -298,7 +249,6 @@ const ArticleListPage = props => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    console.log("initial",match)
     if (match.params.id) {
       loadArticles(match.params.id);
     } else {
@@ -388,7 +338,6 @@ const mapStateToProps = state => {
 const loadData = (store, param) => {
   // For the connect tag we need Provider component but on the server at this moment app is not rendered yet
   // So we need to use store itself to load data
-  console.log("loaddata", param)
   return store.dispatch(fetchArticles(param)); // Manually dispatch a network request
 };
 

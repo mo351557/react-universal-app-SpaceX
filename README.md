@@ -1,40 +1,28 @@
-# SSR News - React
+# SpaceX Launch Application for Publicis Sapient
 
-React Server Side Rendering demo project. This project uses [News API](https://newsapi.org/) under the hood.
+React Server Side Rendering demo project.
 
-Demo: [Click to see DEMO](https://react-ssr-ilker.herokuapp.com/)
+Demo: [Click to see DEMO](https://spacex-in-sapient.herokuapp.com/)
 
-![SSR News](https://i.imgur.com/F3AT7v0.jpg)
+## Lighthouse score 
+![SpaceX Launch](https://github.com/mo351557/react-universal-app-SpaceX/blob/master/LightHouse_score_for_SpaceX.png)
 
-## Getting Started
+## Technologies Used
 
-This project created for a Meetup talk about Server Side Rendering with React.
-
-There is also a SPA version of same project.
-
-- [Visit Repo](https://github.com/ilkeraltin/react-spa-news)
-- [Click to see DEMO](https://react-spa-ilker.herokuapp.com/)
+- [React](https://reactjs.org/)
+- [Node.js](https://nodejs.org/)
+- [React Hooks](https://reactjs.org/docs/hooks-intro.html)
+- [Redux](https://redux.js.org/)
+- [Heroku](https://www.heroku.com/)
 
 ### Installing
 
 First clone project and install dependencies
 
 ```sh
-$ mkdir react-news && cd react-news
-$ git clone https://github.com/ilkeraltin/react-ssr-news.git
-$ cd react-ssr-news
+$ git clone https://github.com/mo351557/react-universal-app-SpaceX.git
+$ cd react-universal-app-SpaceX
 $ npm install
-```
-
-
-Navigate to [News API](https://newsapi.org/) and grab your API key.
-
-Find config.js in root folder and update API Key.
-
-```javascript
-const config = {
-  apikey: 'enter-your-api-key'
-};
 ```
 
 Run on local
@@ -57,7 +45,17 @@ You can deploy this project to:
 
 - [Heroku](https://www.heroku.com/)
 
-## Built With
 
-- [React](https://reactjs.org/)
-- [Node.js](https://nodejs.org/)
+ ## Project Description
+ 
+ In this Project, I have used Redux for state management and React Hooks for managing lifecycles of the application.
+
+ Route concept is used for filtering and once clicked on any filter button, filtering happens.
+
+ Applied filters will change the URL and update the Page with latest records without refreshing the page. This was achieved by store in redux.
+ 
+ And if the page is refreshed with the applied filters in the URL – the resulting page should be server side rendered & subsequent filters should again be client side rendered.
+
+ 
+
+

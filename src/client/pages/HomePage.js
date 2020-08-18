@@ -1,5 +1,3 @@
-/* eslint-disable no-script-url */
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
@@ -26,8 +24,7 @@ const HomePage = props => {
   };
 
   const renderArticles = () => {
-    console.log("props",props)
-  
+
     return   props.articles.length > 0 ? props.articles.map(article => (
      
       <div className="col s12 m6 l3 xl3" key={article.flight_number}>
@@ -50,13 +47,6 @@ const HomePage = props => {
               <div style={styles.mrgnbtm10}><b>Successful Launch: </b><span>{article.launch_success ? "True" : "False"}</span></div>
               <div><b>Successful Landing: </b><span>{article.upcoming ? "True" : "False"}</span></div>
           </div>
-
-         
-          {/* <div className="card-action">
-            <a href="javascript:void(0)" onClick={() => readArticle(article)}>
-              Read More
-            </a>
-          </div> */}
         </div>
       </div>
     )) : <div><span>No Data</span></div>
@@ -71,9 +61,6 @@ const HomePage = props => {
   }
 
   const yearFilter = (year) => {
-    console.log("year",year,newPath)
-    // if(newPath) newPath = year+"_"+newPath
-    // else newPath = year;
     let path = `/articles/${year}`; 
     history.push(path);
   }
@@ -81,8 +68,6 @@ const HomePage = props => {
   const history = useHistory();
 
   const filterSuccessLaunch = (isSuccess) =>{ 
-    // let newPath;
-    console.log("newpath",newPath)
     if(isSuccess) newPath = "LaunchSuccess";
     else newPath = "LaunchFailed"
     let path = `/articles/${newPath}`; 
@@ -90,9 +75,6 @@ const HomePage = props => {
   }
 
   const filterSuccessLanding = (isSuccess) =>{ 
-    // let newPath;
-    console.log("newpath",newPath)
-
     if(isSuccess) newPath = "LandingSuccess";
     else newPath = "LandingFailed"
     let path = `/articles/${newPath}`; 
@@ -101,7 +83,6 @@ const HomePage = props => {
 
 
   const filterCard = () => {
-    console.log("button",buttonArr)
     return ( 
     <div class="col s12 m12 l12 xl12">
       <div class="card white " style={{height: "700px"}}>
@@ -221,34 +202,10 @@ const HomePage = props => {
 
   let toggleyearBtnArr = Array(yearsArr.length).fill(false);
   function changeBackground1(e) {
-    console.log(e.type)
     e.target.style.background = '#2bbb43eb';
   }
-  function changeBackground2(e, index) {
-    // if(!toggleyearBtnArr[index]){
-    //   e.target.style.background = '#2bbb4361' ;
-    // }
-  }
-  function changeBackgroundClick(index){
-    // toggleyearBtnArr[index] = !toggleyearBtnArr[index];
-    // if(!toggleyearBtnArr[index]) e.target.style.background = '#2bbb4361' ;
-    // if(toggleyearBtnArr[index]) e.target.style.background = '#2bbb43eb' ;
-    // console.log("HIiiiiiiis",buttonArr)
-    // let arr = buttonArr
-    // console.log("index",index)
-
-    // for(let i=0; i<buttonArr.length;i++){
-    //   if(i = index){
-    //     console.log("index",index)
-    //     arr.Enabled = true;
-    //   }
-    //   else{
-    //     arr.Enabled = false;
-    //   }
-    // }
-    //   // setButtonArr(arr)
-    // console.log("onclik",buttonArr, "arr",arr)
-  }
+ 
+ 
 
   // #2bbb43a6 - green
   // #2bbb4361 = hover
@@ -270,7 +227,6 @@ const HomePage = props => {
   const { fetchArticles: loadArticles } = props;
   useEffect(() => {
     setButtonArr(yearsArr());
-    console.log('componentDidMount',buttonArr);
   }, []);
   useEffect(() => {
     window.scrollTo(0, 0);

@@ -1,5 +1,5 @@
 {
-  "name": "react-news-ssr",
+  "name": "SpaceX_Launch_Project_using_React_Ssr",
   "version": "1.0.0",
   "description": "Server side rendering project",
   "engines": {
@@ -18,7 +18,7 @@
     "dev:server": "nodemon --watch build --exec \"node build/bundle.js\"",
     "precommit": "pretty-quick --staged"
   },
-  "author": "ilker ALTIN",
+  "author": "Mohamed Abuthalha",
   "license": "ISC",
   "dependencies": {
     "@babel/polyfill": "^7.10.4",
@@ -26,13 +26,14 @@
     "compression": "^1.7.4",
     "compression-webpack-plugin": "^4.0.1",
     "concurrently": "5.3.0",
+    "css-loader": "^4.2.1",
     "express": "4.17.1",
     "lodash": "4.17.19",
     "nodemon": "2.0.4",
     "npm-run-all": "4.1.5",
     "prop-types": "^15.7.2",
-    "react-dom": "16.13.1",
     "react": "16.13.1",
+    "react-dom": "16.13.1",
     "react-helmet": "6.1.0",
     "react-lazy-load-image-component": "^1.5.0",
     "react-redux": "7.2.1",
@@ -41,9 +42,10 @@
     "redux": "4.0.5",
     "redux-thunk": "2.3.0",
     "serialize-javascript": "4.0.0",
+    "style-loader": "^1.2.1",
     "uglifyjs-webpack-plugin": "^2.2.0",
-    "webpack-dev-server": "3.11.0",
     "webpack": "4.44.1",
+    "webpack-dev-server": "3.11.0",
     "webpack-merge": "4.2.2",
     "webpack-node-externals": "2.5.1"
   },
