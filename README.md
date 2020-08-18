@@ -50,6 +50,8 @@ You can deploy this project to:
  
  In this Project, I have used Redux for state management and React Hooks for managing lifecycles of the application.
 
+ Implemented Lazy Loading concepts for loading images, so that, we can improve performance of the application.
+
  Route concept is used for filtering and once clicked on any filter button, filtering happens and it is reflected in the url as per the requirement.
 
  Applied filters will change the URL and update the Page with latest records without refreshing the page. This was achieved by store in redux.
